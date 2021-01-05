@@ -1,0 +1,54 @@
+// Colors
+
+$primary: #9B38FF;
+$secondary: #FAC97F;
+$orange: #FC9E21;
+$lemon: #FFDB00;
+$tertiary: #B066FA;
+$green: #4DFA86;
+$green-dark: #3EAD63;
+$black: #000000;
+$black-100: #1d1a1a;
+$white: #ffffff;
+$grey-100: #cccccc;
+$grey-200: #F7F6FF;
+$grey-300: #eeefff;
+$purple-100: #9535ff;
+$purple-200: #8b31eb;
+$orange-100: #ff9a39;
+$orange-200: #e68932;
+$lemon-100:  #e6c700;
+$green-100:  #4ee8a1;
+$green-200:  #31d77b;
+$blue: #3a0ca3;
+$blue-100: #3f37c9;
+$blue-200: #4cc9f0;
+$blue-300: #4895ef;
+$purple-gradient: linear-gradient(to right, $purple-100 0%, $purple-200 100%);
+$orange-gradient: linear-gradient(to right, $orange-100 0%,$orange-200 100%);
+$lemon-gradient: linear-gradient(to right, $lemon 0%, $lemon-100 100%);
+$green-gradient: linear-gradient(to right, $green-100 0%, $green-200 100%);
+
+// Font Family
+$font-lickiest: 'Luckiest Guy',
+cursive,
+Arial,
+Monospace;
+$font-pacifici: 'Pacifico',
+cursive,
+Arial,
+Monospace;
+$font-roboto: 'Roboto Slab',
+serif,
+Arial,
+Monospace;
+$font-poppins: 'Poppins',
+sans-serif;
+// grids
+$grid-gutter-width : 30px;
+$grid-columns: 12;
+$grid-breakpoints: (xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px) !default;

@@ -1,0 +1,195 @@
+.input-group {
+	width: 100%;
+
+	&__label {
+		font-size: 1rem;
+		display: block;
+	}
+
+	&__control:not([type="checkbox"]):not([type="radio"]):not([type="submit"]) {
+		height: 55px;
+		width: 100%;
+		padding: 15px 18px;
+		font-size: 1rem;
+		background-color: $white;
+		border: 2px solid $primary;
+		border-radius: 10px;
+		transition: .2s ease-in-out;
+		outline: 1px dashed transparent;
+
+		&::placeholder,
+		&::-webkit-input-placeholder {
+			color: rgba($black, .5);
+			letter-spacing: 1px;
+		}
+
+		&:focus {
+			border-color: $blue-100;
+			box-shadow: 0 0 7px 0 rgba($grey-200, 1);
+		}
+	}
+
+	&--submit {
+
+		.input-group__control {
+			padding: 0;
+			background-color: $white;
+			border-color: transparent;
+			cursor: pointer;
+			height: auto;
+
+			&:hover {
+				background-color: $blue-100;
+
+				.icon-search {
+					fill: $white;
+				}
+			}
+		}
+
+		.icon-search {
+			width: 25px;
+			height: 25px;
+			fill: $primary;
+			transition: .13s ease-in-out;
+		}
+	}
+
+	&--textarea {
+		.input-group__control {
+			resize: none;
+		}
+	}
+
+
+}
+
+.form {
+	display: flex;
+	flex-wrap: wrap;
+
+	&--todo {
+		.input-group {
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom: 20px;
+			align-items: center;
+
+			&__label {
+				flex: 0 0 17%;
+				max-width: 17%;
+			}
+
+			&__control {
+				flex: 0 0 83%;
+				max-width: 83%;
+			}
+
+			svg {
+				width: 40px;
+				height: 40px;
+			}
+
+			&--textarea {
+				.input-group__control:not([type=checkbox]):not([type=radio]):not([type=submit]) {
+					flex: 0 0 100%;
+					max-width: 100%;
+					height: 120px;
+				}
+			}
+
+			&--priority {
+				position: relative;
+				flex: 0 0 50%;
+				max-width: 50%;
+
+				.input-group {
+
+					&__control {
+						position: absolute;
+						top: 0;
+						left: 0;
+						opacity: 0;
+						width: 100%;
+						height: 100%;
+						cursor: pointer;
+						z-index: 10;
+						flex: 0 0 100%;
+						max-width: 100%;
+
+						&:checked+.input-group__label {
+							background-position: 100% 100%;
+							border-color: rgba($blue-200, .7);
+						}
+
+						&:active+.input-group__label {
+							transform-origin: center;
+							transform: scale(.85);
+						}
+					}
+
+					&__label {
+						display: inline-flex;
+						flex-wrap: wrap;
+						align-items: center;
+						flex: 1 1 auto;
+						font-size: 22px;
+						min-width: 130px;
+						width: 100%;
+						padding: 10px;
+						border-radius: 10px;
+						color: $white;
+						border: 2px solid $primary;
+						transition: 0.3s ease;
+						box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+						background: linear-gradient(45deg, #9535ff 1%, $blue-200 97%);
+						background-size: 350%;
+						background-position: 0 50%;
+
+						svg {
+							width: 20px;
+							height: 20px;
+							margin-right: 10px;
+							fill: $white;
+						}
+					}
+				}
+			}
+
+			&--submit {
+				flex: 0 0 50%;
+				max-width: 50%;
+
+				.btn {
+					border: 2px solid $primary;
+					transition: 0.3s ease;
+					box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+					background: linear-gradient(45deg, #9535ff 1%, $blue-200 97%);
+					background-size: 350%;
+					background-position: 0 50%;
+					padding: 10px;
+					border-radius: 10px;
+					width: 100%;
+					font-size: 22px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
+					color: $white;
+
+					&:hover {
+						background-position: 100% 100%;
+						border-color: rgba($blue-200, .6);
+					}
+
+					svg {
+						width: 22px;
+						height: 22px;
+						margin-right: 10px;
+						fill: $white;
+					}
+				}
+			}
+		}
+	}
+}

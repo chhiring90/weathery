@@ -1,0 +1,58 @@
+.nav {
+	padding: 30px;
+	display: flex;
+	flex-wrap: wrap;
+
+	&__logo {
+		font-family: $font-pacifici;
+		color: $primary;
+		line-height: 1;
+		font-size: 1.7rem;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+
+		.icon-sun {
+			width: 35px;
+			height: 35px;
+			margin: 0 5px 0 0;
+			display: inline-block;
+		}
+	}
+
+	&__search {
+		flex: 1 0 auto;
+		padding: 0 0 0 15px;
+
+		.form {
+			position: relative;
+			max-width: 605px;
+			margin: 0 auto;
+
+			.input-group {
+				&--submit {
+					position: absolute;
+					right: 2px;
+					top: 2px;
+					width: auto;
+					bottom: 2px;
+					line-height: 1;
+					border-radius: 10px 9px 9px 10px;
+					overflow: hidden;
+
+					.input-group__control {
+						padding: 9px 13px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						height: 100%;
+					}
+				}
+
+				&__control {
+					background-color: $grey-300;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,135 @@
+.card {
+
+	&-deck {
+		&--weekly {
+			padding: 50px 0 0;
+
+			[class^=col-], [class*=col-] {
+				padding-left: 7px;
+				padding-right: 7px;
+			}
+
+			.card {
+				background: $purple-gradient;
+				text-align: center;
+				padding: 7px 0 0;
+				display: flex;
+				flex-direction: column;
+				border-radius: 10px;
+				overflow: hidden;
+				margin: 0 0 30px;
+				box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
+
+				&__header {
+					background-color: $white;
+					padding: 15px 0 0;
+
+					h4 {
+						font-family: inherit;
+						font-weight: 400;
+					}
+				}
+
+				&__body {
+					background-color: $white;
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+					text-align: center;
+					padding: 10px 0 20px;
+					.symbol {
+						max-width: 50%;
+						flex: 0 0 50%;
+						display: flex;
+						align-items: center;
+						text-align: center;
+						justify-content: center;
+						padding: 0 10px 10px;
+						position: relative;
+
+						&:before {
+							content: '';
+							display: block;
+							height: 70px;
+							border-left: 2px solid rgba($grey-100, .5);
+							position: absolute;
+							left: 0;
+						}
+
+						h5 {
+							font-size: 60px;
+							margin: 0;
+							font-weight: 400;
+						}
+					}
+				}
+
+				&__icon {
+					max-width: 50%;
+					flex: 0 0 50%;
+					padding: 0 10px 10px;
+
+					svg {
+						margin: 0 auto;
+						width: 25px;
+						height: 25px;
+					}
+
+					&--lg {
+						display: flex;
+						align-items: center;
+						
+						svg {
+							width: 58px;
+							height: 58px;
+							fill: $primary;
+						}
+					}
+				}
+
+				&__footer {
+					display: flex;
+					flex-wrap: wrap;
+					background-color: $white;
+
+					&:before {
+						content: '';
+						display: block;
+						border-top: 2px solid rgba($grey-100, .5);
+						width: 90%;
+						margin: 0 auto;
+					}
+					.card__icon {
+						display: flex;
+						align-items: center;
+						padding: 30px 20px;
+						position: relative;
+					}
+
+					.icon-sun {
+						fill: $orange;
+					}
+					.icon-wind {
+						fill: $primary;
+					}
+				}
+			}
+
+			&>[class*="col-"],
+			[class^="col-"] {
+				&:nth-child(2n) {
+					.card {
+						background: $lemon-gradient;
+					}
+				}
+
+				&:nth-child(3n) {
+					.card {
+						background: $green-gradient;
+					}
+				}
+			}
+		}
+	}
+
+}

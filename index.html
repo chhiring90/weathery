@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weathery</title>
+	<link rel="stylesheet" type="text/css" href="src/sass/main.scss">
+</head>
+
+<body>
+	<div class="app-wrapper">
+		<div id="app" class="app">
+			<main class="main-content">
+				<header class="header">
+					<nav class="nav">
+						<div class="nav__logo">
+							<svg class="icon-sun">
+								<use href="src/images/icons.svg#sun-2"></use>
+							</svg>
+							Weathery
+						</div><!-- end .nav__logo -->
+						<div class="nav__search">
+							<form action="POST" class="form">
+								<div class="input-group">
+									<input class="input-group__control" type="text" id="search" name="search"
+										placeholder="Weather in your city">
+								</div><!-- end input-group -->
+								<div class="input-group input-group--submit">
+									<button class="input-group__control" type="submit">
+										<svg class="icon-search">
+											<use href="src/images/icons.svg#search-interface-symbol"></use>
+										</svg>
+									</button><!-- end .input-group__control -->
+								</div><!-- end .input-group -->
+							</form><!-- end .form -->
+						</div><!-- end .nav__Search -->
+					</nav><!-- end .nav -->
+				</header><!-- end .header -->
+				<section class="weathery-dash">
+					<div class="weathery-dash__content">
+						<div class="container">
+							<div class="row" id="current-weather">
+								<div class="col-5">
+									<div class="card card--temp">
+										<div class="card__wrap">
+											<div class="card__body">
+												<h3><small>CLEAR</small>32°<span class="unit">c</span></h3>
+											</div><!-- end .card__body -->
+											<div class="card__footer">
+												<p>Data provided by <a href="https://openweathermap.org/"
+														target="_blank">OpenWeather</a></p>
+											</div><!-- end .card__footer -->
+										</div><!-- end .card__wrap -->
+									</div><!-- end .card -->
+								</div>
+								<div class="col-3">
+									<div class="weather-details">
+										<div class="weather-details__title">
+											<h4>Details</h4>
+										</div><!-- end .weather-details__title -->
+										<div class="weather-detail">
+											<div class="weather-detail__icon">
+												<svg class="icon-temprature">
+													<use href="src/images/icons.svg#thermometer"></use>
+												</svg>
+											</div><!-- end weather-detail__icon -->
+											<div class="weather-detail__info">
+												<h5>Temprature</h5>
+												<p>35°c</p>
+											</div><!-- end .weather-detail__info -->
+										</div><!-- end weather-detail -->
+										<div class="weather-detail">
+											<div class="weather-detail__icon">
+												<svg class="icon-sun">
+													<use href="src/images/icons.svg#sun-1"></use>
+												</svg>
+											</div><!-- end weather-detail__icon -->
+											<div class="weather-detail__info">
+												<h5>UV Index</h5>
+												<p>35°c</p>
+											</div><!-- end .weather-detail__info -->
+										</div><!-- end weather-detail -->
+										<div class="weather-detail">
+											<div class="weather-detail__icon">
+												<svg class="icon-wind">
+													<use href="src/images/icons.svg#wind"></use>
+												</svg>
+											</div><!-- end weather-detail__icon -->
+											<div class="weather-detail__info">
+												<h5>Wind</h5>
+												<p>35°c</p>
+											</div><!-- end .weather-detail__info -->
+										</div><!-- end weather-detail -->
+										<div class="weather-detail">
+											<div class="weather-detail__icon">
+												<svg class="icon-humidity">
+													<use href="src/images/icons.svg#humidity"></use>
+												</svg>
+											</div><!-- end weather-detail__icon -->
+											<div class="weather-detail__info">
+												<h5>Humidity</h5>
+												<p>35°c</p>
+											</div><!-- end .weather-detail__info -->
+										</div><!-- end weather-detail -->
+									</div><!-- end .weather-details -->
+								</div>
+								<div class="col-4">
+									<div class="weathery-bars">
+										<div class="weathery-bars__item">
+											<h5>Today</h5>
+											<div class="weathery-bar active">
+												<span>Clear</span><span>32° / 12°</span>
+											</div><!-- end weathery-bar -->
+										</div><!-- end weathery-bars__item -->
+										<div class="weathery-bars__item">
+											<h5>Tomorrow</h5>
+											<div class="weathery-bar">
+												<span>Haze</span> <span>32° / 12°</span>
+											</div><!-- end weathery-bar -->
+										</div><!-- end weathery-bars__item -->
+										<div class="weathery-bars__item">
+											<h5>Sunday</h5>
+											<div class="weathery-bar">
+												<span>Haze</span> <span>32° / 12°</span>
+											</div><!-- end weathery-bar -->
+										</div><!-- end weathery-bars__item -->
+									</div><!-- end .weathery-bars -->
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<!-- <canvas id="chart"></canvas> -->
+								</div>
+							</div>
+							<div class="row card-deck card-deck--weekly">
+								<div class="col-4">
+									<div class="card">
+										<div class="card__header">
+											<h4>Sunday</h4>
+										</div><!-- end .card__header -->
+										<div class="card__body">
+											<div class="card__icon card__icon--lg">
+												<svg>
+													<use href="src/images/icons.svg#cloudy"></use>
+												</svg>
+											</div><!-- end .card__icon -->
+											<div class="symbol">
+												<h5>62°</h5>
+											</div><!-- end .symbol -->
+										</div><!-- end .card__body -->
+										<div class="card__footer">
+											<div class="card__icon">
+												<svg class="icon-sun">
+													<use href="src/images/icons.svg#sun-1"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+											<div class="card__icon">
+												<svg class="icon-wind">
+													<use href="src/images/icons.svg#wind"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+										</div><!-- end .card__footer -->
+									</div><!-- end .card -->
+								</div>
+								<div class="col-4">
+									<div class="card">
+										<div class="card__header">
+											<h4>Monday</h4>
+										</div><!-- end .card__header -->
+										<div class="card__body">
+											<div class="card__icon card__icon--lg">
+												<svg>
+													<use href="src/images/icons.svg#cloudy"></use>
+												</svg>
+											</div><!-- end .card__icon -->
+											<div class="symbol">
+												<h5>62°</h5>
+											</div><!-- end .symbol -->
+										</div><!-- end .card__body -->
+										<div class="card__footer">
+											<div class="card__icon">
+												<svg class="icon-sun">
+													<use href="src/images/icons.svg#sun-1"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+											<div class="card__icon">
+												<svg class="icon-wind">
+													<use href="src/images/icons.svg#wind"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+										</div><!-- end .card__footer -->
+									</div><!-- end .card -->
+								</div>
+								<div class="col-4">
+									<div class="card">
+										<div class="card__header">
+											<h4>Tuesday</h4>
+										</div><!-- end .card__header -->
+										<div class="card__body">
+											<div class="card__icon card__icon--lg">
+												<svg>
+													<use href="src/images/icons.svg#cloudy"></use>
+												</svg>
+											</div><!-- end .card__icon -->
+											<div class="symbol">
+												<h5>62°</h5>
+											</div><!-- end .symbol -->
+										</div><!-- end .card__body -->
+										<div class="card__footer">
+											<div class="card__icon">
+												<svg class="icon-sun">
+													<use href="src/images/icons.svg#sun-1"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+											<div class="card__icon">
+												<svg class="icon-wind">
+													<use href="src/images/icons.svg#wind"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+										</div><!-- end .card__footer -->
+									</div><!-- end .card -->
+								</div>
+								<div class="col-4">
+									<div class="card">
+										<div class="card__header">
+											<h4>Wednesday</h4>
+										</div><!-- end .card__header -->
+										<div class="card__body">
+											<div class="card__icon card__icon--lg">
+												<svg>
+													<use href="src/images/icons.svg#cloudy"></use>
+												</svg>
+											</div><!-- end .card__icon -->
+											<div class="symbol">
+												<h5>62°</h5>
+											</div><!-- end .symbol -->
+										</div><!-- end .card__body -->
+										<div class="card__footer">
+											<div class="card__icon">
+												<svg class="icon-sun">
+													<use href="src/images/icons.svg#sun-1"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+											<div class="card__icon">
+												<svg class="icon-wind">
+													<use href="src/images/icons.svg#wind"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+										</div><!-- end .card__footer -->
+									</div><!-- end .card -->
+								</div>
+								<div class="col-4">
+									<div class="card">
+										<div class="card__header">
+											<h4>Thursday</h4>
+										</div><!-- end .card__header -->
+										<div class="card__body">
+											<div class="card__icon card__icon--lg">
+												<svg>
+													<use href="src/images/icons.svg#cloudy"></use>
+												</svg>
+											</div><!-- end .card__icon -->
+											<div class="symbol">
+												<h5>62°</h5>
+											</div><!-- end .symbol -->
+										</div><!-- end .card__body -->
+										<div class="card__footer">
+											<div class="card__icon">
+												<svg class="icon-sun">
+													<use href="src/images/icons.svg#sun-1"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+											<div class="card__icon">
+												<svg class="icon-wind">
+													<use href="src/images/icons.svg#wind"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+										</div><!-- end .card__footer -->
+									</div><!-- end .card -->
+								</div>
+								<div class="col-4">
+									<div class="card">
+										<div class="card__header">
+											<h4>Friday</h4>
+										</div><!-- end .card__header -->
+										<div class="card__body">
+											<div class="card__icon card__icon--lg">
+												<svg>
+													<use href="src/images/icons.svg#cloudy"></use>
+												</svg>
+											</div><!-- end .card__icon -->
+											<div class="symbol">
+												<h5>62°</h5>
+											</div><!-- end .symbol -->
+										</div><!-- end .card__body -->
+										<div class="card__footer">
+											<div class="card__icon">
+												<svg class="icon-sun">
+													<use href="src/images/icons.svg#sun-1"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+											<div class="card__icon">
+												<svg class="icon-wind">
+													<use href="src/images/icons.svg#wind"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+										</div><!-- end .card__footer -->
+									</div><!-- end .card -->
+								</div>
+								<div class="col-4">
+									<div class="card">
+										<div class="card__header">
+											<h4>Saturday</h4>
+										</div><!-- end .card__header -->
+										<div class="card__body">
+											<div class="card__icon card__icon--lg">
+												<svg>
+													<use href="src/images/icons.svg#cloudy"></use>
+												</svg>
+											</div><!-- end .card__icon -->
+											<div class="symbol">
+												<h5>62°</h5>
+											</div><!-- end .symbol -->
+										</div><!-- end .card__body -->
+										<div class="card__footer">
+											<div class="card__icon">
+												<svg class="icon-sun">
+													<use href="src/images/icons.svg#sun-1"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+											<div class="card__icon">
+												<svg class="icon-wind">
+													<use href="src/images/icons.svg#wind"></use>
+												</svg>
+												<span class="symbol">
+													29°C
+												</span>
+											</div><!-- end .card__icon -->
+										</div><!-- end .card__footer -->
+									</div><!-- end .card -->
+								</div>
+							</div><!-- end .row card-deck -->
+						</div>
+					</div><!-- end .weathery-dash__content -->
+				</section><!-- end .weathery-dash -->
+			</main>
+			<aside class="sidebar">
+				<div class="sidebar__header">
+					<div class="sidebar__date">
+						<h6>December 30, Wednesday</h6>
+						<time>8: 36 AM</time>
+						<span> <strong>Location Street, City</strong></span>
+					</div><!-- end sidebar__date -->
+					<div class="sidebar__mode">
+						<div class="title">
+							<h6>Theme Mode</h6>
+						</div>
+						<div class="input-group">
+							<input type="checkbox" class="input-group__control" name="theme-mode" id="theme-mode">
+							<label for="theme-mode" class="input-group__label">
+								<svg class="icon-sun">
+									<use href="src/images/icons.svg#sun-2"></use>
+								</svg>
+								<svg class="icon-moon">
+									<use href="src/images/icons.svg#crescent-moon"></use>
+								</svg>
+							</label>
+						</div><!-- end .input-group -->
+					</div><!-- end sidebar__mode -->
+				</div><!-- end .sitebar__header -->
+				<div class="sidebar-tab">
+					<ul class="sidebar-tab__nav">
+						<li><a href="#">Todos</a></li>
+						<li><a href="#">Add New</a></li>
+					</ul><!-- end .todos__nav -->
+					<div class="sidebar-tab__content">
+						<div class="sidebar-tab__pane">
+							<div class="todos-item">
+								<div class="todos-item__wrap">
+									<div class="todos-item__body">
+										<div class="input-group">
+											<input type="checkbox" class="input-group__control" name="completed-todo"
+												id="completed-todo">
+											<label class="input-group__label" for="completed-todo"></label>
+										</div>
+										<p>Draw a line in the sand cannibalize product</p>
+									</div><!-- end todos-item__body -->
+								</div><!-- end .todos-item__wrap -->
+								<div class="todos-item__footer">
+									<ol>
+										<li>
+											<div class="input-group">
+												<input type="checkbox" class="input-group__control" name="priority-todo"
+													id="priority-todo">
+												<label class="input-group__label" for="priority-todo">
+													<svg class="icon-pin">
+														<use xlink:href="src/images/icons.svg#push-pin" />
+													</svg>
+												</label>
+											</div>
+										</li>
+										<li>
+											<button class="btn btn--remove">
+												<svg class="icon-remove">
+													<use xlink:href="src/images/icons.svg#delete" />
+												</svg>
+											</button>
+										</li>
+									</ol>
+								</div><!-- end .todos-item__footer -->
+							</div><!-- end .todos-item -->
+							<div class="todos-item">
+								<div class="todos-item__wrap">
+									<div class="todos-item__body">
+										<div class="input-group">
+											<input type="checkbox" class="input-group__control" name="completed-todo"
+												id="completed-todo">
+											<label class="input-group__label" for="completed-todo"></label>
+										</div>
+										<p>Draw a line in the sand cannibalize product</p>
+									</div><!-- end todos-item__body -->
+								</div><!-- end .todos-item__wrap -->
+								<div class="todos-item__footer">
+									<ol>
+										<li>
+											<div class="input-group">
+												<input type="checkbox" class="input-group__control" name="priority-todo"
+													id="priority-todo">
+												<label class="input-group__label" for="priority-todo">
+													<svg class="icon-pin">
+														<use xlink:href="src/images/icons.svg#push-pin" />
+													</svg>
+												</label>
+											</div>
+										</li>
+										<li>
+											<button class="btn btn--remove">
+												<svg class="icon-remove">
+													<use xlink:href="src/images/icons.svg#delete" />
+												</svg>
+											</button>
+										</li>
+									</ol>
+								</div><!-- end .todos-item__footer -->
+							</div><!-- end .todos-item -->
+						</div><!-- end .sidebar-tab__pane -->
+						<div class="sidebar-tab__pane">
+							<form action="POST" class="form form--todo">
+								<div class="input-group input-group--textarea">
+									<textarea class="input-group__control" value="Write Code" name="write-todo"
+										id="write-todo" placeholder="Write Todos Here..."></textarea>
+								</div><!-- end input-group -->
+								<div class="input-group">
+									<label for="timer-todo" class="input-group__label">
+										<svg class="icon">
+											<use xlink:href="src/images/icons.svg#clock" />
+										</svg>
+									</label>
+									<input type="text" id="timer-todo" value="10:00 AM" class="input-group__control"
+										name="time">
+								</div><!-- end input-group -->
+								<div class="input-group input-group--priority">
+									<input type="checkbox" id="priority-todo" value="10:00 AM"
+										class="input-group__control" name="time">
+									<label for="priority-todo" class="input-group__label">
+										<svg class="icon">
+											<use xlink:href="src/images/icons.svg#push-pin" />
+										</svg>
+										Priority
+									</label>
+								</div><!-- end input-group -->
+								<div class="input-group input-group--submit">
+									<button type="submit" class="btn btn--submit">
+										<svg class="icon">
+											<use xlink:href="src/images/icons.svg#plus" />
+										</svg>
+										Add Todo
+									</button>
+								</div><!-- end input-group -->
+							</form>
+						</div><!-- sidebar-tab__pane -->
+					</div><!-- end .sidebar-tab__content -->
+				</div><!-- end todos -->
+				<!-- <nav class="sidebar__nav">
+					<ul class="setting-list">
+						<li class="setting-list__item">
+							<button class="btn" title="Grid">
+								<svg class="icon-grid">
+									<use xlink:href="src/images/icons.svg#squares"></use>
+								</svg>
+							</button>
+						</li>
+						<li class="setting-list__item">
+							<button class="btn" title="List">
+								<svg class="icon-grid">
+									<use xlink:href="src/images/icons.svg#list"></use>
+								</svg>
+							</button>
+						</li>
+						<li class="setting-list__item">
+							<button class="btn" title="bookmarked">
+								<svg class="icon-grid">
+									<use xlink:href="src/images/icons.svg#bookmark"></use>
+								</svg>
+							</button>
+						</li>
+						<li class="setting-list__item">
+							<button class="btn" title="Dark Mode">
+								<span class="slider"></span>
+							</button>
+						</li>
+					</ul>
+				</nav> -->
+				<!-- end sidebar__nav -->
+			</aside><!-- end sidebar -->
+			<div class="error">
+				<div class="error__icon">
+
+				</div><!-- end .error__icon -->
+			</div><!-- end .error -->
+		</div><!-- end  #app -->
+	</div><!-- end .wrapper -->
+	<script defer type="text/javascript" src="src/js/controller/controller.js"></script>
+</body>
+
+</html>
