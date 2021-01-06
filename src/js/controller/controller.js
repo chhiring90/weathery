@@ -12,10 +12,12 @@ const controlSearchResults = async function(){
 		const query = searchView.getQuery();
 
 		// 2) load weather results
-		console.log(query);
-		await model.loadWeatherResults(query);
+		await model.loadCurrentWeatherResults(query);
 
-		// 3) render weather results
+		// 3) load daily weather results
+		// await model.loadDailyWeatherResults(query); 
+
+		// 4) render weather results
 		currentWeatherView.render(model.state.weatherData);
 
 	} catch(error){

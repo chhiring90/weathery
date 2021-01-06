@@ -27,7 +27,7 @@ class CurrentWeatherView extends View {
 				<div class="weather-detail">
 					<div class="weather-detail__icon">
 						<svg class="icon-temprature">
-							<use href="src/images/icons.svg#thermometer"></use>
+							<use href="${icons}#thermometer"></use>
 						</svg>
 					</div><!-- end weather-detail__icon -->
 					<div class="weather-detail__info">
@@ -38,7 +38,7 @@ class CurrentWeatherView extends View {
 				<div class="weather-detail">
 					<div class="weather-detail__icon">
 						<svg class="icon-sun">
-							<use href="src/images/icons.svg#sun-1"></use>
+							<use href="${icons}#sun-1"></use>
 						</svg>
 					</div><!-- end weather-detail__icon -->
 					<div class="weather-detail__info">
@@ -49,7 +49,7 @@ class CurrentWeatherView extends View {
 				<div class="weather-detail">
 					<div class="weather-detail__icon">
 						<svg class="icon-wind">
-							<use href="src/images/icons.svg#wind"></use>
+							<use href="${icons}#wind"></use>
 						</svg>
 					</div><!-- end weather-detail__icon -->
 					<div class="weather-detail__info">
@@ -60,7 +60,7 @@ class CurrentWeatherView extends View {
 				<div class="weather-detail">
 					<div class="weather-detail__icon">
 						<svg class="icon-humidity">
-							<use href="src/images/icons.svg#humidity"></use>
+							<use href="${icons}#humidity"></use>
 						</svg>
 					</div><!-- end weather-detail__icon -->
 					<div class="weather-detail__info">

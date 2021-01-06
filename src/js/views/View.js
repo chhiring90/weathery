@@ -13,7 +13,7 @@ export default class View {
 		if(!render) return markup;
 
 		this._clear();
-		this._parentElement.insetAdjacentHTML("afterbegin", markup);
+		this._parentElement.insertAdjacentHTML("afterbegin", markup);
 	}
 
 	_clear(){
@@ -48,13 +48,13 @@ export default class View {
 		const markup = `
 		`;
 		this._clear();
-		this._parentElement.insetAdjacentHTML("afterbegin", markup);
+		this._parentElement.insertAdjacentHTML("afterbegin", markup);
 	}
 
 	renderSpiiner(){
 		const markup = ``;
 
 		this._clear();
-		this._parentElement.insetAdjacentHTML("afterbegin", markup);
+		this._parentElement.insertAdjacentHTML("afterbegin", markup);
 	}
 }
