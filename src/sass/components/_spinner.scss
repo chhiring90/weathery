@@ -1,0 +1,9 @@
+.spinner {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 8px solid $primary;
+    border-left-color: transparent;
+    margin: 0 auto;
+    animation: rotation .8s infinite;
+}

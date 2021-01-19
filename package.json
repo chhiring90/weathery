@@ -9,6 +9,7 @@
   "author": "Blank bin",
   "license": "ISC",
   "dependencies": {
+    "chart.js": "^2.9.4",
     "parcel": "^1.12.4",
     "sass": "^1.30.0"
   }

@@ -4,13 +4,37 @@ import icons from "../../images/icons.svg";
 class CurrentWeatherView extends View {
 	_parentElement = document.querySelector("#current-weather");
 
+	_generateDetails() {
+
+		const details = [...this._data.details];
+
+		const transformedDetails = details.map(element => {
+			return `
+			<div class="weather-detail">
+				<div class="weather-detail__icon">
+					<svg class="${element.className}">
+						<use href="${icons}#${element.icon}"></use>
+					</svg>
+				</div><!-- end weather-detail__icon -->
+				<div class="weather-detail__info">
+					<h5>${element.label}</h5>
+					<p>${element.value}</p>
+				</div><!-- end .weather-detail__info -->
+			</div><!-- end weather-detail -->`;
+		})
+		.join("");
+
+		return transformedDetails;
+	}
+
 	_generateMarkup(){
 		return `
 		<div class="col-5">
 			<div class="card card--temp">
 				<div class="card__wrap">
 					<div class="card__body">
-						<h3><small>CLEAR</small>32°<span class="unit">c</span></h3>
+						<h3> <small>${this._data.today}</small><small>${this._data.weatherDescription}</small>
+						${this._data.temp}°<span class="unit">c</span></h3>
 					</div><!-- end .card__body -->
 					<div class="card__footer">
 						<p>Data provided by <a href="https://openweathermap.org/"
@@ -24,50 +48,7 @@ class CurrentWeatherView extends View {
 				<div class="weather-details__title">
 					<h4>Details</h4>
 				</div><!-- end .weather-details__title -->
-				<div class="weather-detail">
-					<div class="weather-detail__icon">
-						<svg class="icon-temprature">
-							<use href="${icons}#thermometer"></use>
-						</svg>
-					</div><!-- end weather-detail__icon -->
-					<div class="weather-detail__info">
-						<h5>Temprature</h5>
-						<p>35°c</p>
-					</div><!-- end .weather-detail__info -->
-				</div><!-- end weather-detail -->
-				<div class="weather-detail">
-					<div class="weather-detail__icon">
-						<svg class="icon-sun">
-							<use href="${icons}#sun-1"></use>
-						</svg>
-					</div><!-- end weather-detail__icon -->
-					<div class="weather-detail__info">
-						<h5>UV Index</h5>
-						<p>35°c</p>
-					</div><!-- end .weather-detail__info -->
-				</div><!-- end weather-detail -->
-				<div class="weather-detail">
-					<div class="weather-detail__icon">
-						<svg class="icon-wind">
-							<use href="${icons}#wind"></use>
-						</svg>
-					</div><!-- end weather-detail__icon -->
-					<div class="weather-detail__info">
-						<h5>Wind</h5>
-						<p>35°c</p>
-					</div><!-- end .weather-detail__info -->
-				</div><!-- end weather-detail -->
-				<div class="weather-detail">
-					<div class="weather-detail__icon">
-						<svg class="icon-humidity">
-							<use href="${icons}#humidity"></use>
-						</svg>
-					</div><!-- end weather-detail__icon -->
-					<div class="weather-detail__info">
-						<h5>Humidity</h5>
-						<p>35°c</p>
-					</div><!-- end .weather-detail__info -->
-				</div><!-- end weather-detail -->
+				${this._generateDetails()}
 			</div><!-- end .weather-details -->
 		</div>
 		<div class="col-4">

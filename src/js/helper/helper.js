@@ -24,7 +24,6 @@ export const AJAX = async function (url, uploadData) {
 		const data = await res.json();
 
 		if (!res.ok) throw new Error(`${data.message}(${res.status})`);
-		console.log(data);
 		return data;
 	} catch (error) {
 		console.log(error, "☠☠");
@@ -33,16 +32,29 @@ export const AJAX = async function (url, uploadData) {
 };
 
 export const kelvinToCelsius = function(number){
-	return (number - KELVIN_UNIT).toFixed(2);
+	return Math.round(number - KELVIN_UNIT);
 };
 
-export const unixTimeStampToTime = function(number) {
+export const unixTimeStampToTime = function(number, formatted) {
 	let date = new Date(number * MILLISECOND);
+	let day = date.getDay();
 	let hours = date.getHours();
 	let minutes =  `0${date.getMinutes()}`;
 	let seconds = `0${date.getSeconds()}`;
-
 	let formattedTime = `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
 
-	return formattedTime;
+	switch(formatted){
+		case "date":
+			return date;
+		case "day":
+			return day;
+		case "hours":
+			return hours;
+		case "minutes":
+			return minutes.substr(-2);
+		case "seconds":
+			return seconds.substr(-2);
+		default:
+			return formattedTime;
+	}
 };
