@@ -17,8 +17,6 @@ const controlSearchResults = async function(){
 		// 3) load daily weather results
 		await model.loadDailyWeatherResults(model.state.search.lat,model.state.search.lon);
 
-		
-
 		// 5) render weather results
 		currentWeatherView.render(model.state.currentWeather);
 
